@@ -39,7 +39,7 @@ def drawHist(im, name="Histogram"):
     for idx, ch in enumerate(channel_order):
         roi = imHist[Ng * idx : Ng * (idx + 1), 0 : 3 * Ng]
 
-        #  Calculate the histogram for the current channel
+        # Calculate the histogram for the current channel
         hist = np.zeros(Ng, dtype=int)
         for y in range(im.shape[0]):
             for x in range(im.shape[1]):
