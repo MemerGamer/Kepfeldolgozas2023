@@ -28,6 +28,12 @@ def main():
 
     # Display images
     cv2.imshow("Original", image)
+
+    cv2.imshow("Gradient vp", grad_vp)
+    cv2.imshow("Gradient vn", grad_vn)
+    cv2.imshow("Gradient fp", grad_fp)
+    cv2.imshow("Gradient fn", grad_fn)
+
     cv2.imshow("Vertical edges", vertical_edges)
     cv2.imshow("Horizontal edges", horizontal_edges)
     cv2.imshow("All edges", all_edges)
