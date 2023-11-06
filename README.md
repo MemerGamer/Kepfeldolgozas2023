@@ -21,18 +21,18 @@ A feladatokhoz használt képek és videók a [kepek](./kepek/) és [videok](./v
 
 A [sample_project](/sample_project/) található egy példa program ami megnyit egy képet és megjeleníti a képernyőn opencv segítségével.
 
-## Feladatok listája
+## Feladat megoldások listája
 
-| Feladat         | Leírás                                                    |
+| Feladat         | Rövid Leírás                                              |
 | --------------- | --------------------------------------------------------- |
-| [lab1](lab1/)   | Képek beolvasása, megjelenítése, bevezetés                |
-| [lab2](lab2/)   | Színcsatornák kezelése                                    |
-| [lab3](lab3/)   | Konvolúciós szűrők                                        |
-| [lab4](lab4/)   | Gradiensszámítás élkeresés                                |
-| [lab5](lab5/)   | Hisztogram számítása, kiegyenlítése és színkalibrálás     |
-| [lab6](lab6/)   | Morfológia                                                |
-| [lab7](lab7/)   | Távolság transzformáció és vázkeresés (Hit, Fit and Miss) |
-| [lab8](lab8/)   | Fuzzy c-means, szegmentálás globális információ alapján   |
-| [lab9](lab9/)   | Hough transzformáció                                      |
+| [lab01](lab01/) | Képek beolvasása, megjelenítése, bevezetés                |
+| [lab02](lab02/) | Színcsatornák kezelése                                    |
+| [lab03](lab03/) | Konvolúciós szűrők                                        |
+| [lab04](lab04/) | Gradiensszámítás élkeresés                                |
+| [lab05](lab05/) | Hisztogram számítása, kiegyenlítése és színkalibrálás     |
+| [lab06](lab06/) | Morfológia                                                |
+| [lab07](lab07/) | Távolság transzformáció és vázkeresés (Hit, Fit and Miss) |
+| [lab08](lab08/) | Fuzzy c-means, szegmentálás globális információ alapján   |
+| [lab09](lab09/) | Hough transzformáció                                      |
 | [lab10](lab10/) | Watershed, viztározók módszere                            |
 | [lab11](lab11/) | Videó feldolgozása                                        |
