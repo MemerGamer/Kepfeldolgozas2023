@@ -52,7 +52,7 @@ def regionGrowing(image, p0):
 
 
 def main():
-    # cap = cv2.VideoCapture("../videok/IMG_6909.MOV") # I couldn't get this video to work because have missing codecs
+    # cap = cv2.VideoCapture("../videok/IMG_6909.AVI") # Converted from MOV to AVI with ffmpeg
     cap = cv2.VideoCapture("../videok/MVI_0022.AVI")
 
     if not cap.isOpened():
