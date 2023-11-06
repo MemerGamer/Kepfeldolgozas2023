@@ -38,13 +38,20 @@ def main():
                     if 0 <= a < imP.shape[1] and 0 <= b < imP.shape[0]:
                         hough_accumulator[b, a] += 1
 
-    # Find the most-voted circle center in the Hough accumulator
-    max_votes = np.max(hough_accumulator)
-    center_y, center_x = np.where(hough_accumulator == max_votes)
+    # Find the most-voted circles in the Hough accumulator
+    num_circles = 6  # Set the number of circles to detect
+    for _ in range(num_circles):
+        max_votes = np.max(hough_accumulator)
+        center_y, center_x = np.where(hough_accumulator == max_votes)
 
-    # Draw the detected circle on the original image
-    for i in range(len(center_x)):
-        cv2.circle(img, (center_x[i], center_y[i]), R, (0, 0, 255), 2)
+        # Draw the detected circle on the original image
+        for i in range(len(center_x)):
+            cv2.circle(img, (center_x[i], center_y[i]), R, (0, 0, 255), 2)
+
+        # Set the detected circle region to zero in the accumulator to find the next circle
+        hough_accumulator[
+            center_y[0] - R : center_y[0] + R, center_x[0] - R : center_x[0] + R
+        ] = 0
 
     # Show the image with detected circles
     cv2.imshow("Detected Circles", img)
