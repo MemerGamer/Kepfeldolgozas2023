@@ -52,8 +52,10 @@ def regionGrowing(image, p0):
 
 
 def main():
-    # cap = cv2.VideoCapture("../videok/IMG_6909.AVI") # Converted from MOV to AVI with ffmpeg
-    cap = cv2.VideoCapture("../videok/MVI_0022.AVI")
+    cap = cv2.VideoCapture(
+        "../videok/IMG_6909.AVI"
+    )  # Converted from MOV to AVI with ffmpeg
+    # cap = cv2.VideoCapture("../videok/MVI_0022.AVI")
 
     if not cap.isOpened():
         print("Error opening video stream or file")
@@ -66,6 +68,10 @@ def main():
 
     while True:
         ret, frame = cap.read()
+        # Resize frame
+
+        frame = cv2.resize(frame, (0, 0), fx=0.15, fy=0.15)
+
         if not ret:
             break
         # Play the video in color
