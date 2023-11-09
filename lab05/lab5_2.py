@@ -73,28 +73,22 @@ def f2(input_image):
         ]
     )
 
-    # Convert input image to floating point format in the [0, 1] range and add alpha channel
-    input_image = (input_image / 255.0).astype(np.float32)
-    input_image = cv2.cvtColor(input_image, cv2.COLOR_BGR2BGRA)
+    # Convert image to float and add alpha channel
+    output_image = (input_image / 255.0).astype(np.float32)
+    output_image = cv2.cvtColor(output_image, cv2.COLOR_BGR2RGBA)
 
-    # Reshape the image to perform matrix multiplication
-    in_rows, in_cols, in_channels = input_image.shape
-    input_image = input_image.reshape(in_rows * in_cols, in_channels)
+    # Reshape the image for matrix multiplication and apply the custom matrix
+    output_image = output_image.reshape(
+        (output_image.shape[0] * output_image.shape[1], 4)
+    )
+    output_image = np.dot(output_image, custom_matrix)
+    output_image = output_image.reshape((input_image.shape[0], input_image.shape[1], 4))
 
-    # Apply the custom matrix
-    output_image = np.dot(input_image, custom_matrix.T)
+    # Convert the image back to 8-bit BGR format
+    output_image = cv2.cvtColor(output_image.astype(np.uint8), cv2.COLOR_BGRA2BGR)
 
-    # Reshape the output image back to original shape
-    output_image = output_image.reshape(in_rows, in_cols, in_channels)
-
-    # Clip values to the [0, 1] range
-    output_image = np.float32(np.clip(output_image, 0, 1))
-
-    # Convert output image to 8-bit BGR format
-    output_image = (output_image * 255).astype(np.uint8)
-
-    # Remove the alpha channel and convert to 8-bit BGR format
-    output_image = cv2.cvtColor(output_image, cv2.COLOR_BGRA2BGR)
+    output_image = output_image[:, :, :3]
+    output_image = np.clip(output_image * 255, 0, 255).astype(np.uint8)
 
     # Display the result
     cv2.imshow("Output Image", output_image)
